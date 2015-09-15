@@ -16,6 +16,7 @@
     <h1 class="text-center">My little to do app!</h1>
     
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
+      <h4>Total number of items: {{totalItems}}</h4>
   
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model = "newItem" ng-keypress = "enterPress($event)">
@@ -63,7 +64,7 @@
       
       <!-- Button to clear items -->
       <div class="text-center">  
-        <button class="btn btn-info" type="button" ng-click="removeCompleteItems()">
+        <button class="btn btn-info" type="button" ng-click="removeCompleteItems();">
           <h4>Delete Completed Items</h4> 
         </button>
       </div>

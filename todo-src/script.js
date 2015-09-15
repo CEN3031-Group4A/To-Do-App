@@ -25,7 +25,7 @@ myApp.controller('MainCtrl', function ($scope){
   
     $scope.newItem = "";
     $scope.priority = "";
-    $scope.totalItems = 2;
+    $scope.totalItems = $scope.todos.length;
   
   $scope.addItem = function(){
     console.log("in add");
@@ -38,8 +38,8 @@ myApp.controller('MainCtrl', function ($scope){
         });
       $scope.newItem = "";
       $scope.priority = "";
-      $scope.totalItems+=1;
-    }
+      $scope.totalItems++;
+    } 
   }
   
   $scope.enterPress = function(keyEvent) {
@@ -54,7 +54,7 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
-    $scope.totalItems-=1;
+    $scope.totalItems--;
   }
     
   $scope.markComp = function(item){
