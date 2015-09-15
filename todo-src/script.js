@@ -1,7 +1,6 @@
 // Code goes here
 
 var myApp = angular.module('app', ["xeditable"]);
-var counter = 2; 
 
 myApp.run(function(editableOptions) {
   editableOptions.theme = 'bs3';
@@ -26,7 +25,7 @@ myApp.controller('MainCtrl', function ($scope){
   
     $scope.newItem = "";
     $scope.priority = "";
-    $scope.totalItems = 2;
+    $scope.totalItems = $scope.todos.length;
   
   $scope.addItem = function(){
     console.log("in add");
@@ -39,9 +38,8 @@ myApp.controller('MainCtrl', function ($scope){
         });
       $scope.newItem = "";
       $scope.priority = "";
-      $scope.totalItems+=1;
-    }
-    counter++; 
+      $scope.totalItems++;
+    } 
   }
   
   $scope.enterPress = function(keyEvent) {
@@ -56,8 +54,7 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
-    $scope.totalItems-=1;
-    counter--; 
+    $scope.totalItems--;
   }
     
   $scope.markComp = function(item){
@@ -80,10 +77,6 @@ myApp.controller('MainCtrl', function ($scope){
             $scope.deleteItem($scope.todos[i]);
         }
     }
-  }
-
-  $scope.updatecounter = function() {
-    document.getElementById("counterSet").innerHTML=counter; 
   }
   
 });

@@ -16,12 +16,12 @@
     <h1 class="text-center">My little to do app!</h1>
     
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
-      <h4>Total number of items: <a id = "counterSet">2</a></h4>
+      <h4>Total number of items: {{totalItems}}</h4>
   
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model = "newItem" ng-keypress = "enterPress($event)">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="addItem(); updatecounter();">
+            <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
@@ -51,7 +51,7 @@
           <div> Priority: {{do.priority}}</div>
           
           <!-- Buttons -->
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do); updatecounter();">
+          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <h6><span class="glyphicon glyphicon-trash " aria-hidden="true"></span> Delete</h6>
           </button>
 
@@ -64,7 +64,7 @@
       
       <!-- Button to clear items -->
       <div class="text-center">  
-        <button class="btn btn-info" type="button" ng-click="removeCompleteItems(); updatecounter();">
+        <button class="btn btn-info" type="button" ng-click="removeCompleteItems();">
           <h4>Delete Completed Items</h4> 
         </button>
       </div>
